@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GoblinGame
 {
-    public partial class Form1 : Form
+    public partial class FrmGame : Form
     {
-        public Form1()
+        public FrmGame()
         {
             InitializeComponent();
         }
