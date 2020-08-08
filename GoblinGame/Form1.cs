@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GoblinGame
 {
-    public partial class FrmGame : Form
+    public partial class frmGame : Form
     {
-        public FrmGame()
+        public frmGame()
         {
             InitializeComponent();
+        }
+
+        private void FrmGame_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
