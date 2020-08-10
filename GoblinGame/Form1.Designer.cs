@@ -35,6 +35,7 @@
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPause = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu = new System.Windows.Forms.MenuStrip();
+            this.mnuQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.mnuQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Felix Titling", 29.75F);
-            this.label1.Location = new System.Drawing.Point(125, 24);
+            this.label1.Location = new System.Drawing.Point(130, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(297, 47);
             this.label1.TabIndex = 0;
@@ -105,6 +105,12 @@
             this.Mnu.Size = new System.Drawing.Size(744, 24);
             this.Mnu.TabIndex = 2;
             this.Mnu.Text = "menuStrip2";
+            // 
+            // mnuQuit
+            // 
+            this.mnuQuit.Name = "mnuQuit";
+            this.mnuQuit.Size = new System.Drawing.Size(76, 20);
+            this.mnuQuit.Text = "Quit Game";
             // 
             // label3
             // 
@@ -184,12 +190,6 @@
             this.label9.Size = new System.Drawing.Size(78, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "HIGHSCORES";
-            // 
-            // mnuQuit
-            // 
-            this.mnuQuit.Name = "mnuQuit";
-            this.mnuQuit.Size = new System.Drawing.Size(76, 20);
-            this.mnuQuit.Text = "Quit Game";
             // 
             // frmGame
             // 
