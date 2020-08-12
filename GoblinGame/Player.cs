@@ -9,10 +9,11 @@ namespace GoblinGame
 {
     class Player
     {
-        public int x, y, width, height;//variables for the rectangle
-        public Image player;//variable for the planet&#39;s image
-        public Rectangle playerRec;//variable for a rectangle to place our image in
-                                  //Create a constructor (initialises the values of the fields)
+        public int x, y, width, height; //variables for the rectangle
+        public Image player; //variable for the player's image
+        public Rectangle playerRec; //variable for a rectangle to place our image in
+        
+        //Create a constructor (initialises the values of the fields)
         public Player()
         {
             x = 20;

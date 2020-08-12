@@ -35,7 +35,7 @@ namespace GoblinGame
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
-            //call the Planet class&#39;s DrawPlanet method to draw the image planet1
+
             bat1.DrawEnemy(g);
             goblin1.DrawPlayer(g);
             tree.DrawTree(g);
