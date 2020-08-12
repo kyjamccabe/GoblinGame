@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using GoblinGame.obstacles;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,9 @@ namespace GoblinGame
         Graphics g; //declare a graphics object called g
         Enemy bat1 = new Enemy(); //create the object, planet1
         Player goblin1 = new Player();
+        Crate crate = new Crate();
+        Bush bush = new Bush();
+        Tree tree = new Tree();
 
         public frmGame()
         {
@@ -34,6 +38,9 @@ namespace GoblinGame
             //call the Planet class&#39;s DrawPlanet method to draw the image planet1
             bat1.DrawEnemy(g);
             goblin1.DrawPlayer(g);
+            tree.DrawTree(g);
+            crate.DrawCrate(g);
+            bush.DrawBush(g);
         }
     }
 }
