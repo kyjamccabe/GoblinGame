@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGame = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +80,7 @@
             // 
             // txtName
             // 
+            this.txtName.Enabled = false;
             this.txtName.Location = new System.Drawing.Point(622, 81);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(108, 20);
@@ -192,6 +195,12 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "HIGHSCORES";
             // 
+            // tmrPlayer
+            // 
+            this.tmrPlayer.Enabled = true;
+            this.tmrPlayer.Interval = 10;
+            this.tmrPlayer.Tick += new System.EventHandler(this.tmrPlayer_Tick);
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,9 +220,12 @@
             this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Mnu);
+            this.KeyPreview = true;
             this.Name = "frmGame";
             this.Text = "Goblin Game";
             this.Load += new System.EventHandler(this.FrmGame_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyUp);
             this.Mnu.ResumeLayout(false);
             this.Mnu.PerformLayout();
             this.ResumeLayout(false);
@@ -240,6 +252,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem mnuQuit;
+        private System.Windows.Forms.Timer tmrPlayer;
     }
 }
 

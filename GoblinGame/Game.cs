@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using GoblinGame.obstacles;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +16,19 @@ namespace GoblinGame
     {
 
         Graphics g; //declare a graphics object called g
-        Enemy bat1 = new Enemy(); //create the object, planet1
+        Enemy bat1 = new Enemy(); //create the object, bat1
         Player goblin1 = new Player();
         Crate crate = new Crate();
         Bush bush = new Bush();
         Tree tree = new Tree();
 
+        bool left, right;
+        string move;
+
         public frmGame()
         {
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
         }
 
         private void FrmGame_Load(object sender, EventArgs e)
@@ -41,6 +46,34 @@ namespace GoblinGame
             tree.DrawTree(g);
             crate.DrawCrate(g);
             bush.DrawBush(g);
+        }
+
+        private void frmGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
+        }
+
+        private void frmGame_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
+        }
+
+        private void tmrPlayer_Tick(object sender, EventArgs e)
+        {
+            if (right) // if right arrow key pressed
+            {
+                move = "right";
+                goblin1.MovePlayer(move);
+            }
+            if (left) // if left arrow key pressed
+            {
+                move = "left";
+                goblin1.MovePlayer(move);
+            }
+
+            pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
     }
 }
