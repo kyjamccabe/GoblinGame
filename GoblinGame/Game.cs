@@ -22,7 +22,7 @@ namespace GoblinGame
         Bush bush = new Bush();
         Tree tree = new Tree();
 
-        bool left, right;
+        bool left, right, jump;
         string move;
 
         public frmGame()
@@ -52,6 +52,7 @@ namespace GoblinGame
         {
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
+            if (e.KeyData == Keys.Up) { jump = true; }
         }
 
         private void frmGame_KeyUp(object sender, KeyEventArgs e)
@@ -70,6 +71,11 @@ namespace GoblinGame
             if (left) // if left arrow key pressed
             {
                 move = "left";
+                goblin1.MovePlayer(move);
+            }
+            if (jump)
+            {
+                move = "jump";
                 goblin1.MovePlayer(move);
             }
 
