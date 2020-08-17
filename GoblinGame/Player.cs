@@ -14,8 +14,7 @@ namespace GoblinGame
         public Rectangle playerRec; //variable for a rectangle to place our image in
 
         int gravity = 1;
-        int yspeed = 20;
-        bool jumping = false;
+        int yspeed = 17;
 
         //Create a constructor (initialises the values of the fields)
         public Player()
@@ -41,7 +40,6 @@ namespace GoblinGame
             {
                 if (playerRec.Location.X > 485) // is spaceship within 50 of right side
                 {
-
                     x = 490;
                     playerRec.Location = new Point(x, y);
                 }
@@ -65,25 +63,19 @@ namespace GoblinGame
                     x -= 5;
                     playerRec.Location = new Point(x, y);
                 }
-
             }
 
             if (move == "jump")
-            {
-                jumping = true;
-
-                if (jumping == true)
-                {
-                    yspeed = yspeed - gravity; //Creates acceleration when going down, deceleration when going up
-                    y = y - yspeed; //Moves player according to YSpeed
-                    playerRec.Location = new Point(x, y);
-                }            
+            {                    
+                    yspeed = yspeed - gravity;
+                    y = y - yspeed;
+                    playerRec.Location = new Point(x, y);                       
             }
         }
 
         public void OnGround()
         {
-            yspeed = 20;
+            yspeed = 17;
         }
     }
 }

@@ -22,8 +22,7 @@ namespace GoblinGame
         Bush bush = new Bush();
         Tree tree = new Tree();
 
-        bool left, right;
-        bool jump;
+        bool left, right, jump;
         string move;
 
         public frmGame()
