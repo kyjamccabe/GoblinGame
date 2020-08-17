@@ -15,6 +15,7 @@ namespace GoblinGame
 
         int gravity = 1;
         int yspeed = 20;
+        bool jumping = false;
 
         //Create a constructor (initialises the values of the fields)
         public Player()
@@ -66,6 +67,23 @@ namespace GoblinGame
                 }
 
             }
+
+            if (move == "jump")
+            {
+                jumping = true;
+
+                if (jumping == true)
+                {
+                    yspeed = yspeed - gravity; //Creates acceleration when going down, deceleration when going up
+                    y = y - yspeed; //Moves player according to YSpeed
+                    playerRec.Location = new Point(x, y);
+                }            
+            }
+        }
+
+        public void OnGround()
+        {
+            yspeed = 20;
         }
     }
 }

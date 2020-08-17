@@ -22,7 +22,8 @@ namespace GoblinGame
         Bush bush = new Bush();
         Tree tree = new Tree();
 
-        bool left, right, jump;
+        bool left, right;
+        bool jump;
         string move;
 
         public frmGame()
@@ -73,10 +74,17 @@ namespace GoblinGame
                 move = "left";
                 goblin1.MovePlayer(move);
             }
-            if (jump)
+
+            if (jump == true)
             {
                 move = "jump";
                 goblin1.MovePlayer(move);
+            }
+
+            if (goblin1.y == 220)
+            {
+                jump = false;
+                goblin1.OnGround();              
             }
 
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
