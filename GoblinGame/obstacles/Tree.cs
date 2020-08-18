@@ -14,11 +14,12 @@ namespace GoblinGame.obstacles
         public Image tree;//variable for the tree's image
 
         public Rectangle treeRec;//variable for a rectangle to place our image in
+        Random rnd = new Random();
 
         //Create a constructor (initialises the values of the fields)
         public Tree()
         {
-            x = 400;
+            x = 1000;
             y = 250;
             width = 50;
             height = 50;
@@ -29,6 +30,20 @@ namespace GoblinGame.obstacles
         public void DrawTree(Graphics g)
         {
             g.DrawImage(tree, treeRec); //Draw rock image
+        }
+
+        public void MoveTree()
+        {
+            if (x <= -50)
+            {
+                x = 800 + rnd.Next(100, 600);
+                treeRec.Location = new Point(x, y);
+            }
+            else
+            {
+                x -= 2; //Move 2 to the left
+                treeRec.Location = new Point(x, y);
+            }
         }
     }
 }

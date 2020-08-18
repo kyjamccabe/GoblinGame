@@ -86,6 +86,20 @@ namespace GoblinGame
                 goblin1.OnGround();              
             }
 
+            bush.MoveBush();
+            crate.MoveCrate();
+            tree.MoveTree();
+
+            if (tree.treeRec.IntersectsWith(crate.crateRec) || tree.treeRec.IntersectsWith(bush.bushRec))
+            {
+                tree.x += 20;
+            }
+
+            if (crate.crateRec.IntersectsWith(tree.treeRec) || crate.crateRec.IntersectsWith(bush.bushRec))
+            {
+                crate.x += 10;
+            }
+
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
     }

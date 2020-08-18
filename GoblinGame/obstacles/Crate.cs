@@ -13,11 +13,13 @@ namespace GoblinGame.obstacles
         public int x, y, width, height;//variables for the rectangle
         public Image crate;//variable for the crate's image
         public Rectangle crateRec;//variable for a rectangle to place our image in
+        
+        Random rnd = new Random();
 
         //Create a constructor (initialises the values of the fields)
         public Crate()
         {
-            x = 200;
+            x = 800;
             y = 245;
             width = 50;
             height = 50;
@@ -28,6 +30,20 @@ namespace GoblinGame.obstacles
         public void DrawCrate(Graphics g)
         {
             g.DrawImage(crate, crateRec); //Draw crate image
+        }
+
+        public void MoveCrate()
+        {
+            if (x <= -50)
+            {
+                x = 550 + rnd.Next(100, 600);
+                crateRec.Location = new Point(x, y);
+            }
+            else
+            {
+                x -= 2; //Move 2 to the left
+                crateRec.Location = new Point(x, y);
+            }
         }
     }
 }
