@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace GoblinGame
 {
@@ -16,6 +17,7 @@ namespace GoblinGame
     {
 
         Graphics g; //declare a graphics object called g
+        Random rnd = new Random();
         Enemy bat1 = new Enemy(); //create the object, bat1
         Player goblin1 = new Player();
         Crate crate = new Crate();
@@ -24,6 +26,7 @@ namespace GoblinGame
 
         bool left, right, jump;
         string move;
+
 
         public frmGame()
         {
@@ -40,6 +43,9 @@ namespace GoblinGame
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
+
+            int rndmspeed = rnd.Next(1, 5);
+            bat1.x -= rndmspeed;
 
             bat1.DrawEnemy(g);
             goblin1.DrawPlayer(g);
@@ -99,6 +105,8 @@ namespace GoblinGame
             {
                 crate.x += 10;
             }
+
+            bat1.MoveEnemy();
 
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }

@@ -14,10 +14,13 @@ namespace GoblinGame
         public Image enemyImage;//variable for the planet&#39;s image
         public Rectangle enemyRec;//variable for a rectangle to place our image in
         public int score;
+
+        Random rnd = new Random();
+
         //Create a constructor (initialises the values of the fields)
         public Enemy()
         {
-            x = 520;
+            x = 700;
             y = 120;
             width = 40;
             height = 40;
@@ -32,6 +35,15 @@ namespace GoblinGame
         public void DrawEnemy(Graphics g)
         {
             g.DrawImage(enemyImage, enemyRec);
+        }
+
+        public void MoveEnemy()
+        {
+            if (x <= -50)
+            {
+                x = 700;
+            }                 
+            enemyRec.Location = new Point(x, y);        
         }
     }
 }
