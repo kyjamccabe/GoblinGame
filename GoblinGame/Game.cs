@@ -44,9 +44,6 @@ namespace GoblinGame
             //get the graphics used to paint on the panel control
             g = e.Graphics;
 
-            int rndmspeed = rnd.Next(1, 5);
-            bat1.x -= rndmspeed;
-
             bat1.DrawEnemy(g);
             goblin1.DrawPlayer(g);
             tree.DrawTree(g);

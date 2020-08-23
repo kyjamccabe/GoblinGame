@@ -16,6 +16,7 @@ namespace GoblinGame
         public int score;
 
         Random rnd = new Random();
+        int rndmspeed = 3;
 
         //Create a constructor (initialises the values of the fields)
         public Enemy()
@@ -24,6 +25,7 @@ namespace GoblinGame
             y = 120;
             width = 40;
             height = 40;
+
 
             //planetImage contains the plane1.png image
             enemyImage = Properties.Resources.bat1;
@@ -35,6 +37,7 @@ namespace GoblinGame
         public void DrawEnemy(Graphics g)
         {
             g.DrawImage(enemyImage, enemyRec);
+            
         }
 
         public void MoveEnemy()
@@ -42,7 +45,13 @@ namespace GoblinGame
             if (x <= -50)
             {
                 x = 700;
-            }                 
+                rndmspeed = rnd.Next(1, 7);
+            }
+            else
+            {
+                x -= rndmspeed;
+            }
+            
             enemyRec.Location = new Point(x, y);        
         }
     }
