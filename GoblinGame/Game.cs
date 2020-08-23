@@ -24,6 +24,9 @@ namespace GoblinGame
         Bush bush = new Bush();
         Tree tree = new Tree();
 
+        //declare a list  missiles from the missile class
+        List<Bullet> bullets = new List<Bullet>();
+
         bool left, right, jump;
         string move;
 
@@ -49,13 +52,19 @@ namespace GoblinGame
             tree.DrawTree(g);
             crate.DrawCrate(g);
             bush.DrawBush(g);
-        }
 
+            foreach (Bullet b in bullets)
+            {
+                b.draw(g);
+            }
+        }
+        
         private void frmGame_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
+            if (e.KeyData == Keys.Space) { bullets.Add(new Bullet(goblin1.playerRec)); }
         }
 
         private void frmGame_KeyUp(object sender, KeyEventArgs e)
