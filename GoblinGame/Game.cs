@@ -24,7 +24,7 @@ namespace GoblinGame
         Bush bush = new Bush();
         Tree tree = new Tree();
 
-        //declare a list  missiles from the missile class
+        //declare a list  bullet from the bullet class
         List<Bullet> bullets = new List<Bullet>();
 
         bool left, right, jump;
@@ -55,7 +55,7 @@ namespace GoblinGame
 
             foreach (Bullet b in bullets)
             {
-                b.draw(g);
+                b.DrawBullet(g);
             }
         }
         

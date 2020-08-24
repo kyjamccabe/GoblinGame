@@ -13,12 +13,12 @@ namespace GoblinGame
         public Image bullet;//variable for the bullet's image
         public Rectangle bulletRec;//variable for a rectangle to place our image in
 
-        // in the following constructor we pass in the values of spaceRec which
-        // gives us the position of the spaceship which we can then use to place the
-        // bullet where the spaceship is located
+        // in the following constructor we pass in the values of playerRec which
+        // gives us the position of the player which we can then use to place the
+        // bullet where the player is located
         public Bullet(Rectangle playerRec)
         {
-            x = playerRec.X + 37; // move bullet to middle of spaceship
+            x = playerRec.X + 37; // move bullet to middle of player
             y = playerRec.Y + 22;
             width = 20;
             height = 10;
@@ -26,9 +26,9 @@ namespace GoblinGame
             bulletRec = new Rectangle(x, y, width, height);
         }
 
-        public void draw(Graphics g)
+        public void DrawBullet(Graphics g)
         {
-            x += 20;//speed of bullet
+            x += 20; //speed of bullet
             bulletRec = new Rectangle(x, y, width, height);
             g.DrawImage(bullet, bulletRec);
         }
