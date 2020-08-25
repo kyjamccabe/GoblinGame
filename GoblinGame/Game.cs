@@ -114,6 +114,22 @@ namespace GoblinGame
 
             bat1.MoveEnemy();
 
+            foreach (Bullet b in bullets)
+            {
+                if (bat1.enemyRec.IntersectsWith(b.bulletRec))
+                {
+                    bat1.x = -50;
+                    bullets.Remove(b);
+                    break;
+                }
+                
+                if (b.bulletRec.X >= 700)
+                {
+                    bullets.Remove(b);
+                    break;
+                }
+            }
+
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
     }
