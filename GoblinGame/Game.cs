@@ -131,31 +131,11 @@ namespace GoblinGame
                 }
             }
 
-            if (goblin1.playerRec.IntersectsWith(crate.crateRec))
+            if (goblin1.playerRec.IntersectsWith(crate.crateRec) || goblin1.playerRec.IntersectsWith(tree.treeRec) || goblin1.playerRec.IntersectsWith(bush.bushRec))
             {
-                crate.x = -50;
-                lives -=  1;
+                tmrPlayer.Enabled = false;
             }
 
-            if (goblin1.playerRec.IntersectsWith(bush.bushRec))
-            {
-                bush.x = -50;
-                lives -= 1;
-            }
-
-            if (goblin1.playerRec.IntersectsWith(tree.treeRec))
-            {
-                tree.x = -50;
-                lives -= 1;
-            }
-
-            if (goblin1.playerRec.IntersectsWith(bat1.enemyRec))
-            {
-                bat1.x = -50;
-                lives -= 1;
-            }
-
-            lblLives.Text = lives.ToString();
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
     }
