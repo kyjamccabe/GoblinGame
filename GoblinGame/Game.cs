@@ -29,6 +29,7 @@ namespace GoblinGame
 
         bool left, right, jump;
         string move;
+        int lives = 3;
 
 
         public frmGame()
@@ -130,6 +131,31 @@ namespace GoblinGame
                 }
             }
 
+            if (goblin1.playerRec.IntersectsWith(crate.crateRec))
+            {
+                crate.x = -50;
+                lives -=  1;
+            }
+
+            if (goblin1.playerRec.IntersectsWith(bush.bushRec))
+            {
+                bush.x = -50;
+                lives -= 1;
+            }
+
+            if (goblin1.playerRec.IntersectsWith(tree.treeRec))
+            {
+                tree.x = -50;
+                lives -= 1;
+            }
+
+            if (goblin1.playerRec.IntersectsWith(bat1.enemyRec))
+            {
+                bat1.x = -50;
+                lives -= 1;
+            }
+
+            lblLives.Text = lives.ToString();
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
     }
