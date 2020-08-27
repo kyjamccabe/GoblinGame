@@ -46,7 +46,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
+            this.tmrGame = new System.Windows.Forms.Timer(this.components);
+            this.tmrRestart = new System.Windows.Forms.Timer(this.components);
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,11 +196,16 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "HIGHSCORES";
             // 
-            // tmrPlayer
+            // tmrGame
             // 
-            this.tmrPlayer.Enabled = true;
-            this.tmrPlayer.Interval = 10;
-            this.tmrPlayer.Tick += new System.EventHandler(this.tmrPlayer_Tick);
+            this.tmrGame.Enabled = true;
+            this.tmrGame.Interval = 10;
+            this.tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            // 
+            // tmrRestart
+            // 
+            this.tmrRestart.Interval = 1;
+            this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
             // 
             // frmGame
             // 
@@ -252,7 +258,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem mnuQuit;
-        private System.Windows.Forms.Timer tmrPlayer;
+        private System.Windows.Forms.Timer tmrGame;
+        private System.Windows.Forms.Timer tmrRestart;
     }
 }
 

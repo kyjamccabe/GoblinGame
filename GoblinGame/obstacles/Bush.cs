@@ -19,7 +19,7 @@ namespace GoblinGame.obstacles
         //Create a constructor (initialises the values of the fields)
         public Bush()
         {
-            x = 550;
+            x = 600;
             y = 250;
             width = 60;
             height = 50;

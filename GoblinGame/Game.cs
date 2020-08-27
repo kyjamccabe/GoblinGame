@@ -28,8 +28,9 @@ namespace GoblinGame
         List<Bullet> bullets = new List<Bullet>();
 
         bool left, right, jump;
+        bool restart = false;
+        bool live = true;
         string move;
-        int lives = 3;
 
 
         public frmGame()
@@ -66,15 +67,17 @@ namespace GoblinGame
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
             if (e.KeyData == Keys.Space) { bullets.Add(new Bullet(goblin1.playerRec)); }
+            if (e.KeyData == Keys.R) { restart = true; }
         }
 
         private void frmGame_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { left = false; }
             if (e.KeyData == Keys.Right) { right = false; }
+            if (e.KeyData == Keys.R) { restart = false; }
         }
 
-        private void tmrPlayer_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
             if (right) // if right arrow key pressed
             {
@@ -133,10 +136,40 @@ namespace GoblinGame
 
             if (goblin1.playerRec.IntersectsWith(crate.crateRec) || goblin1.playerRec.IntersectsWith(tree.treeRec) || goblin1.playerRec.IntersectsWith(bush.bushRec))
             {
-                tmrPlayer.Enabled = false;
+                tmrGame.Enabled = false;
+                tmrRestart.Enabled = true;
             }
 
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
+        }
+
+        private void tmrRestart_Tick(object sender, EventArgs e)
+        {
+            if (restart == true)
+            {
+                tmrGame.Enabled = true;
+                tmrRestart.Enabled = false;
+                goblin1.x = 20;
+                
+                if (jump == true)
+                {
+                    goblin1.y = 220;
+                    goblin1
+                }
+
+                crate.x = 800;
+                tree.x = 1000;
+                bush.x = 600;
+                bat1.x = 700;
+
+                bush.MoveBush();
+                crate.MoveCrate();
+                tree.MoveTree();
+                goblin1.MovePlayer(move);
+                bat1.MoveEnemy();
+            }
+
+            pnlGame.Invalidate();
         }
     }
 }

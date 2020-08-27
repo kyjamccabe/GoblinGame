@@ -14,7 +14,7 @@ namespace GoblinGame
         public Rectangle playerRec; //variable for a rectangle to place our image in
 
         int gravity = 1;
-        int yspeed = 17;
+        public int yspeed = 17;
 
         //Create a constructor (initialises the values of the fields)
         public Player()
