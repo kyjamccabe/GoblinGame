@@ -72,10 +72,5 @@ namespace GoblinGame
                     playerRec.Location = new Point(x, y);                       
             }
         }
-
-        public void OnGround()
-        {
-            yspeed = 17;
-        }
     }
 }

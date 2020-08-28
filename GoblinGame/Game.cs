@@ -29,7 +29,7 @@ namespace GoblinGame
 
         bool left, right, jump;
         bool restart = false;
-        bool live = true;
+        bool shoot = true;
         string move;
 
 
@@ -66,7 +66,7 @@ namespace GoblinGame
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
-            if (e.KeyData == Keys.Space) { bullets.Add(new Bullet(goblin1.playerRec)); }
+            if (e.KeyData == Keys.Space && shoot == true) { bullets.Add(new Bullet(goblin1.playerRec)); }
             if (e.KeyData == Keys.R) { restart = true; }
         }
 
@@ -99,7 +99,7 @@ namespace GoblinGame
             if (goblin1.y == 220)
             {
                 jump = false;
-                goblin1.OnGround();              
+                goblin1.yspeed = 17;              
             }
 
             bush.MoveBush();
@@ -134,10 +134,12 @@ namespace GoblinGame
                 }
             }
 
-            if (goblin1.playerRec.IntersectsWith(crate.crateRec) || goblin1.playerRec.IntersectsWith(tree.treeRec) || goblin1.playerRec.IntersectsWith(bush.bushRec))
+            if (goblin1.playerRec.IntersectsWith(crate.crateRec) || goblin1.playerRec.IntersectsWith(tree.treeRec) || goblin1.playerRec.IntersectsWith(bush.bushRec) || goblin1.playerRec.IntersectsWith(bat1.enemyRec))
             {
                 tmrGame.Enabled = false;
                 tmrRestart.Enabled = true;
+                lblRestart.Visible = true;
+                shoot = false;
             }
 
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
@@ -149,13 +151,14 @@ namespace GoblinGame
             {
                 tmrGame.Enabled = true;
                 tmrRestart.Enabled = false;
+                lblRestart.Visible = false;
                 goblin1.x = 20;
-                
-                if (jump == true)
-                {
-                    goblin1.y = 220;
-                    goblin1
-                }
+                goblin1.y = 220;
+
+                jump = false;
+                shoot = true;
+                string move = string.Empty;
+                goblin1.yspeed = 17;
 
                 crate.x = 800;
                 tree.x = 1000;

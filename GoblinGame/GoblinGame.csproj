@@ -104,6 +104,23 @@
   <ItemGroup>
     <None Include="bin\Debug\tree.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\bat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\bullet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\bush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\crate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\goblin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\tree.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -48,6 +48,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
+            this.lblRestart = new System.Windows.Forms.Label();
+            this.pnlGame.SuspendLayout();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
             // pnlGame
             // 
             this.pnlGame.BackColor = System.Drawing.Color.Silver;
+            this.pnlGame.Controls.Add(this.lblRestart);
             this.pnlGame.Location = new System.Drawing.Point(12, 84);
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(550, 317);
@@ -207,6 +210,19 @@
             this.tmrRestart.Interval = 1;
             this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
             // 
+            // lblRestart
+            // 
+            this.lblRestart.AutoSize = true;
+            this.lblRestart.BackColor = System.Drawing.Color.Gray;
+            this.lblRestart.Font = new System.Drawing.Font("High Tower Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRestart.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRestart.Location = new System.Drawing.Point(147, 26);
+            this.lblRestart.Name = "lblRestart";
+            this.lblRestart.Size = new System.Drawing.Size(252, 37);
+            this.lblRestart.TabIndex = 15;
+            this.lblRestart.Text = "Press R to restart.";
+            this.lblRestart.Visible = false;
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +248,8 @@
             this.Load += new System.EventHandler(this.FrmGame_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyUp);
+            this.pnlGame.ResumeLayout(false);
+            this.pnlGame.PerformLayout();
             this.Mnu.ResumeLayout(false);
             this.Mnu.PerformLayout();
             this.ResumeLayout(false);
@@ -260,6 +278,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuQuit;
         private System.Windows.Forms.Timer tmrGame;
         private System.Windows.Forms.Timer tmrRestart;
+        private System.Windows.Forms.Label lblRestart;
     }
 }
 
