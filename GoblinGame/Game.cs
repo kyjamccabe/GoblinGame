@@ -77,6 +77,21 @@ namespace GoblinGame
             if (e.KeyData == Keys.R) { restart = false; }
         }
 
+        private void mnuStart_Click(object sender, EventArgs e)
+        {
+            tmrGame.Enabled = true;
+        }
+
+        private void mnuPause_Click(object sender, EventArgs e)
+        {
+            tmrGame.Enabled = false;
+        }
+
+        private void mnuQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void tmrGame_Tick(object sender, EventArgs e)
         {
             if (right) // if right arrow key pressed
@@ -139,6 +154,7 @@ namespace GoblinGame
                 tmrGame.Enabled = false;
                 tmrRestart.Enabled = true;
                 lblRestart.Visible = true;
+                mnuStart.Enabled = false;
                 shoot = false;
             }
 
@@ -151,6 +167,7 @@ namespace GoblinGame
             {
                 tmrGame.Enabled = true;
                 tmrRestart.Enabled = false;
+                mnuStart.Enabled = true;
                 lblRestart.Visible = false;
                 goblin1.x = 20;
                 goblin1.y = 220;

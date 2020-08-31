@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.lblRestart = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
-            this.lblRestart = new System.Windows.Forms.Label();
             this.pnlGame.SuspendLayout();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,19 @@
             this.pnlGame.TabIndex = 3;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
             // 
+            // lblRestart
+            // 
+            this.lblRestart.AutoSize = true;
+            this.lblRestart.BackColor = System.Drawing.Color.Gray;
+            this.lblRestart.Font = new System.Drawing.Font("High Tower Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRestart.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRestart.Location = new System.Drawing.Point(147, 26);
+            this.lblRestart.Name = "lblRestart";
+            this.lblRestart.Size = new System.Drawing.Size(252, 37);
+            this.lblRestart.TabIndex = 15;
+            this.lblRestart.Text = "Press R to restart.";
+            this.lblRestart.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -95,12 +108,14 @@
             this.mnuStart.Name = "mnuStart";
             this.mnuStart.Size = new System.Drawing.Size(43, 20);
             this.mnuStart.Text = "Start";
+            this.mnuStart.Click += new System.EventHandler(this.mnuStart_Click);
             // 
             // mnuPause
             // 
             this.mnuPause.Name = "mnuPause";
             this.mnuPause.Size = new System.Drawing.Size(50, 20);
             this.mnuPause.Text = "Pause";
+            this.mnuPause.Click += new System.EventHandler(this.mnuPause_Click);
             // 
             // Mnu
             // 
@@ -119,6 +134,7 @@
             this.mnuQuit.Name = "mnuQuit";
             this.mnuQuit.Size = new System.Drawing.Size(76, 20);
             this.mnuQuit.Text = "Quit Game";
+            this.mnuQuit.Click += new System.EventHandler(this.mnuQuit_Click);
             // 
             // label3
             // 
@@ -201,7 +217,6 @@
             // 
             // tmrGame
             // 
-            this.tmrGame.Enabled = true;
             this.tmrGame.Interval = 10;
             this.tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
             // 
@@ -209,19 +224,6 @@
             // 
             this.tmrRestart.Interval = 1;
             this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
-            // 
-            // lblRestart
-            // 
-            this.lblRestart.AutoSize = true;
-            this.lblRestart.BackColor = System.Drawing.Color.Gray;
-            this.lblRestart.Font = new System.Drawing.Font("High Tower Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestart.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRestart.Location = new System.Drawing.Point(147, 26);
-            this.lblRestart.Name = "lblRestart";
-            this.lblRestart.Size = new System.Drawing.Size(252, 37);
-            this.lblRestart.TabIndex = 15;
-            this.lblRestart.Text = "Press R to restart.";
-            this.lblRestart.Visible = false;
             // 
             // frmGame
             // 
