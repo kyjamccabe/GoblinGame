@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
+            this.tmrScore = new System.Windows.Forms.Timer(this.components);
             this.pnlGame.SuspendLayout();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
@@ -225,6 +226,10 @@
             this.tmrRestart.Interval = 1;
             this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
             // 
+            // tmrScore
+            // 
+            this.tmrScore.Tick += new System.EventHandler(this.tmrScore_Tick);
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +286,7 @@
         private System.Windows.Forms.Timer tmrGame;
         private System.Windows.Forms.Timer tmrRestart;
         private System.Windows.Forms.Label lblRestart;
+        private System.Windows.Forms.Timer tmrScore;
     }
 }
 

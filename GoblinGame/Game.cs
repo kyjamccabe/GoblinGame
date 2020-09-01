@@ -31,6 +31,7 @@ namespace GoblinGame
         bool restart = false;
         bool shoot = true;
         string move;
+        int score;
 
 
         public frmGame()
@@ -80,16 +81,24 @@ namespace GoblinGame
         private void mnuStart_Click(object sender, EventArgs e)
         {
             tmrGame.Enabled = true;
+            tmrScore.Enabled = true;
         }
 
         private void mnuPause_Click(object sender, EventArgs e)
         {
             tmrGame.Enabled = false;
+            tmrScore.Enabled = false;
         }
 
         private void mnuQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tmrScore_Tick(object sender, EventArgs e)
+        {
+            score += 1;
+            lblScore.Text = score.ToString();
         }
 
         private void tmrGame_Tick(object sender, EventArgs e)
@@ -153,6 +162,7 @@ namespace GoblinGame
             {
                 tmrGame.Enabled = false;
                 tmrRestart.Enabled = true;
+                tmrScore.Enabled = false;
                 lblRestart.Visible = true;
                 mnuStart.Enabled = false;
                 shoot = false;
@@ -167,6 +177,7 @@ namespace GoblinGame
             {
                 tmrGame.Enabled = true;
                 tmrRestart.Enabled = false;
+                tmrScore.Enabled = true;
                 mnuStart.Enabled = true;
                 lblRestart.Visible = false;
                 goblin1.x = 20;
@@ -175,7 +186,8 @@ namespace GoblinGame
                 jump = false;
                 shoot = true;
                 string move = string.Empty;
-                goblin1.yspeed = 17;
+                score = 0;
+                goblin1.yspeed = 20;
 
                 crate.x = 800;
                 tree.x = 1000;
