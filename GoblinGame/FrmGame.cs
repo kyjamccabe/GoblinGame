@@ -13,7 +13,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace GoblinGame
 {
-    public partial class frmGame : Form
+    public partial class FrmGame : Form
     {
 
         Graphics g; //declare a graphics object called g
@@ -34,15 +34,16 @@ namespace GoblinGame
         int score;
 
 
-        public frmGame()
+        public FrmGame(string playerName)
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
+            lblName.Text = playerName;
         }
 
         private void FrmGame_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void pnlGame_Paint(object sender, PaintEventArgs e)

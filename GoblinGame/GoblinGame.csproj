@@ -48,11 +48,17 @@
   <ItemGroup>
     <Compile Include="Bullet.cs" />
     <Compile Include="Enemy.cs" />
-    <Compile Include="Game.cs">
+    <Compile Include="FrmName.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game.Designer.cs">
-      <DependentUpon>Game.cs</DependentUpon>
+    <Compile Include="FrmName.Designer.cs">
+      <DependentUpon>FrmName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGame.Designer.cs">
+      <DependentUpon>FrmGame.cs</DependentUpon>
     </Compile>
     <Compile Include="obstacles\Bush.cs" />
     <Compile Include="obstacles\Crate.cs" />
@@ -60,8 +66,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.cs</DependentUpon>
+    <EmbeddedResource Include="FrmName.resx">
+      <DependentUpon>FrmName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGame.resx">
+      <DependentUpon>FrmGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

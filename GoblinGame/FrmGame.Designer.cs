@@ -1,6 +1,6 @@
 ﻿namespace GoblinGame
 {
-    partial class frmGame
+    partial class FrmGame
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,6 @@
             this.pnlGame = new System.Windows.Forms.Panel();
             this.lblRestart = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPause = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu = new System.Windows.Forms.MenuStrip();
@@ -50,6 +49,7 @@
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
             this.tmrScore = new System.Windows.Forms.Timer(this.components);
+            this.lblName = new System.Windows.Forms.Label();
             this.pnlGame.SuspendLayout();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
@@ -95,14 +95,6 @@
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Name:";
-            // 
-            // txtName
-            // 
-            this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(622, 81);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(108, 20);
-            this.txtName.TabIndex = 5;
             // 
             // mnuStart
             // 
@@ -230,11 +222,20 @@
             // 
             this.tmrScore.Tick += new System.EventHandler(this.tmrScore_Tick);
             // 
-            // frmGame
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(624, 84);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 13);
+            this.lblName.TabIndex = 15;
+            // 
+            // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 416);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -244,13 +245,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Mnu);
             this.KeyPreview = true;
-            this.Name = "frmGame";
+            this.Name = "FrmGame";
             this.Text = "Goblin Game";
             this.Load += new System.EventHandler(this.FrmGame_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyDown);
@@ -269,7 +269,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlGame;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.ToolStripMenuItem mnuStart;
         private System.Windows.Forms.ToolStripMenuItem mnuPause;
         private System.Windows.Forms.MenuStrip Mnu;
@@ -287,6 +286,7 @@
         private System.Windows.Forms.Timer tmrRestart;
         private System.Windows.Forms.Label lblRestart;
         private System.Windows.Forms.Timer tmrScore;
+        private System.Windows.Forms.Label lblName;
     }
 }
 
