@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Bullet.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="FrmHighScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHighScores.Designer.cs">
+      <DependentUpon>FrmHighScores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,12 +66,16 @@
     <Compile Include="FrmGame.Designer.cs">
       <DependentUpon>FrmGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScores.cs" />
     <Compile Include="obstacles\Bush.cs" />
     <Compile Include="obstacles\Crate.cs" />
     <Compile Include="obstacles\Tree.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmHighScores.resx">
+      <DependentUpon>FrmHighScores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmName.resx">
       <DependentUpon>FrmName.cs</DependentUpon>
     </EmbeddedResource>

@@ -31,6 +31,7 @@ namespace GoblinGame
         bool restart = false;
         bool shoot = true;
         string move;
+        string name;
         int score;
 
 
@@ -39,6 +40,7 @@ namespace GoblinGame
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
             lblName.Text = playerName;
+            name = lblName.Text;
         }
 
         private void FrmGame_Load(object sender, EventArgs e)
@@ -99,7 +101,15 @@ namespace GoblinGame
         private void tmrScore_Tick(object sender, EventArgs e)
         {
             score += 1;
-            lblScore.Text = score.ToString();
+            string playerscore = Convert.ToInt32(score);
+            lblScore.Text = playerscore;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmHighScores FrmHighScore2 = new FrmHighScores(lblName.Text, lblScore.Text);
+            Hide();
+            FrmHighScore2.ShowDialog();
         }
 
         private void tmrGame_Tick(object sender, EventArgs e)

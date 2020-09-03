@@ -50,6 +50,7 @@
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
             this.tmrScore = new System.Windows.Forms.Timer(this.components);
             this.lblName = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlGame.SuspendLayout();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
@@ -230,11 +231,22 @@
             this.lblName.Size = new System.Drawing.Size(0, 13);
             this.lblName.TabIndex = 15;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(627, 193);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Highscores";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 416);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.Label lblRestart;
         private System.Windows.Forms.Timer tmrScore;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button button1;
     }
 }
 
