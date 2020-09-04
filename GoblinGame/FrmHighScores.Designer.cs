@@ -98,18 +98,16 @@
             this.lblPlayerName.AutoSize = true;
             this.lblPlayerName.Location = new System.Drawing.Point(152, 231);
             this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(35, 13);
+            this.lblPlayerName.Size = new System.Drawing.Size(0, 13);
             this.lblPlayerName.TabIndex = 6;
-            this.lblPlayerName.Text = "label5";
             // 
             // lblPlayerScore
             // 
             this.lblPlayerScore.AutoSize = true;
             this.lblPlayerScore.Location = new System.Drawing.Point(152, 263);
             this.lblPlayerScore.Name = "lblPlayerScore";
-            this.lblPlayerScore.Size = new System.Drawing.Size(35, 13);
+            this.lblPlayerScore.Size = new System.Drawing.Size(0, 13);
             this.lblPlayerScore.TabIndex = 7;
-            this.lblPlayerScore.Text = "label5";
             // 
             // btnReturn
             // 

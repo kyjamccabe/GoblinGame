@@ -13,15 +13,16 @@ namespace GoblinGame
 {
     public partial class FrmHighScores : Form
     {
-        public string playerName;
-        string binPath = Application.StartupPath + @"\highscores.txt";
+        string name;
+
+        string binPath = Application.StartupPath + @"\..\..\resources\highscores.txt";
         List<HighScores> highScores = new List<HighScores>();
 
-        public FrmHighScores(string name, int score)
+        public FrmHighScores(string playerName, int score)
         {
             InitializeComponent();
             // get name and score from frmGame and show in lblPlayerName and lblPlayerScore         
-            lblPlayerName.Text = name;
+            lblPlayerName.Text = playerName;
             lblPlayerScore.Text = score.ToString();
             var reader = new StreamReader(binPath);
             // While the reader still has something to read, this code will execute.
@@ -33,6 +34,7 @@ namespace GoblinGame
                 highScores.Add(new HighScores(values[0], Int32.Parse(values[1])));
             }
             reader.Close();
+            name = lblPlayerName.Text;
         }
         public void DisplayHighScores()
         {
@@ -75,7 +77,7 @@ namespace GoblinGame
         private void btnReturn_Click(object sender, EventArgs e)
         {
             SaveHighScores();
-            FrmGame FrmGame2 = new FrmGame(playerName);
+            FrmGame FrmGame2 = new FrmGame(name);
             Hide();
             FrmGame2.ShowDialog();
         }
