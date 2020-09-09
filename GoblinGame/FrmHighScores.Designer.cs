@@ -135,6 +135,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmHighScores";
             this.Text = "FrmHighscore";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmHighScores_FormClosing);
             this.Load += new System.EventHandler(this.FrmHighScores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

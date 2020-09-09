@@ -20,7 +20,7 @@ namespace GoblinGame.obstacles
         public Bush()
         {
             x = 600;
-            y = 250;
+            y = 254;
             width = 60;
             height = 50;
             bush = Properties.Resources.bush;

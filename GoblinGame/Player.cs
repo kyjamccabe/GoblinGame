@@ -14,15 +14,15 @@ namespace GoblinGame
         public Rectangle playerRec; //variable for a rectangle to place our image in
 
         int gravity = 1;
-        public int yspeed = 20;
+        public int yspeed = 17;
 
         //Create a constructor (initialises the values of the fields)
         public Player()
         {
             x = 20;
             y = 220;
-            width = 60;
-            height = 70;
+            width = 70;
+            height = 80;
             player = Properties.Resources.goblin1;
             playerRec = new Rectangle(x, y, width, height);
         }

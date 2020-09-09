@@ -103,6 +103,11 @@ namespace GoblinGame
             FrmHighScore2.ShowDialog();
         }
 
+        private void FrmGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void tmrGame_Tick(object sender, EventArgs e)
         {
             if (right) // if right arrow key pressed

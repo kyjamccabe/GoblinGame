@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGame = new System.Windows.Forms.Panel();
             this.lblRestart = new System.Windows.Forms.Label();
@@ -45,8 +46,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnScore = new System.Windows.Forms.Button();
             this.lstScore = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGame.SuspendLayout();
             this.Mnu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +65,8 @@
             // pnlGame
             // 
             this.pnlGame.BackColor = System.Drawing.Color.Silver;
+            this.pnlGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlGame.BackgroundImage")));
+            this.pnlGame.Controls.Add(this.pictureBox1);
             this.pnlGame.Controls.Add(this.lblRestart);
             this.pnlGame.Location = new System.Drawing.Point(12, 84);
             this.pnlGame.Name = "pnlGame";
@@ -182,6 +187,15 @@
             this.lstScore.Size = new System.Drawing.Size(10, 4);
             this.lstScore.TabIndex = 11;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 300);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(550, 20);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,12 +213,14 @@
             this.KeyPreview = true;
             this.Name = "FrmGame";
             this.Text = "Goblin Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGame_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyUp);
             this.pnlGame.ResumeLayout(false);
             this.pnlGame.PerformLayout();
             this.Mnu.ResumeLayout(false);
             this.Mnu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +244,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnScore;
         private System.Windows.Forms.ListBox lstScore;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

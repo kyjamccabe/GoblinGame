@@ -81,5 +81,11 @@ namespace GoblinGame
             Hide();
             FrmGame2.ShowDialog();
         }
+
+        private void FrmHighScores_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveHighScores();
+            Application.Exit();
+        }
     }
 }

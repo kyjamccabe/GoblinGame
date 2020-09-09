@@ -20,7 +20,7 @@ namespace GoblinGame.obstacles
         public Crate()
         {
             x = 800;
-            y = 245;
+            y = 253;
             width = 50;
             height = 50;
             crate = Properties.Resources.crate;

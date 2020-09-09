@@ -20,7 +20,7 @@ namespace GoblinGame.obstacles
         public Tree()
         {
             x = 1000;
-            y = 250;
+            y = 249;
             width = 50;
             height = 50;
             tree = Properties.Resources.tree;
