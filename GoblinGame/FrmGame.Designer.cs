@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblRestart = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,10 +47,9 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnScore = new System.Windows.Forms.Button();
             this.lstScore = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGame.SuspendLayout();
-            this.Mnu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Mnu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -73,6 +73,15 @@
             this.pnlGame.Size = new System.Drawing.Size(550, 317);
             this.pnlGame.TabIndex = 3;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 300);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(550, 20);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
             // 
             // lblRestart
             // 
@@ -118,7 +127,7 @@
             this.mnuQuit});
             this.Mnu.Location = new System.Drawing.Point(0, 0);
             this.Mnu.Name = "Mnu";
-            this.Mnu.Size = new System.Drawing.Size(744, 24);
+            this.Mnu.Size = new System.Drawing.Size(691, 24);
             this.Mnu.TabIndex = 2;
             this.Mnu.Text = "menuStrip2";
             // 
@@ -187,20 +196,11 @@
             this.lstScore.Size = new System.Drawing.Size(10, 4);
             this.lstScore.TabIndex = 11;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 300);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(550, 20);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 416);
+            this.ClientSize = new System.Drawing.Size(691, 416);
             this.Controls.Add(this.btnScore);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lstScore);
@@ -218,9 +218,9 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyUp);
             this.pnlGame.ResumeLayout(false);
             this.pnlGame.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Mnu.ResumeLayout(false);
             this.Mnu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
