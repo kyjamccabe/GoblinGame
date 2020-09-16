@@ -17,15 +17,15 @@ namespace GoblinGame
     {
 
         Graphics g; //declare a graphics object called g
-        Random rnd = new Random();
-        Enemy bat1 = new Enemy(); //create the object, bat1
-        Player goblin1 = new Player();
+
+        //Creates objects for each of the sprites
+        Enemy bat1 = new Enemy();
+        Player goblin1 = new Player(); 
         Crate crate = new Crate();
         Bush bush = new Bush();
         Tree tree = new Tree();
 
-        //declare a list  bullet from the bullet class
-        List<Bullet> bullets = new List<Bullet>();
+        List<Bullet> bullets = new List<Bullet>(); //Declare a list bullet from the bullet class
 
         bool left, right, jump;
         bool restart = false;
@@ -36,7 +36,7 @@ namespace GoblinGame
         public FrmGame(string playerName)
         {
             InitializeComponent();
-            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true }); //Removes panel flickering
             lblName.Text = playerName;
         }
 
@@ -44,7 +44,8 @@ namespace GoblinGame
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
-
+            
+            //Calls to each objects respective draw methods
             bat1.DrawEnemy(g);
             goblin1.DrawPlayer(g);
             tree.DrawTree(g);
@@ -59,6 +60,7 @@ namespace GoblinGame
         
         private void frmGame_KeyDown(object sender, KeyEventArgs e)
         {
+            //Sets variables according to key presses
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
@@ -68,6 +70,7 @@ namespace GoblinGame
 
         private void frmGame_KeyUp(object sender, KeyEventArgs e)
         {
+            //Unsets variables according to keys that aren't pressed
             if (e.KeyData == Keys.Left) { left = false; }
             if (e.KeyData == Keys.Right) { right = false; }
             if (e.KeyData == Keys.R) { restart = false; }
@@ -75,29 +78,33 @@ namespace GoblinGame
 
         private void mnuStart_Click(object sender, EventArgs e)
         {
+            //Enable timers on start
             tmrGame.Enabled = true;
             tmrScore.Enabled = true;
         }
 
         private void mnuPause_Click(object sender, EventArgs e)
         {
+            //Disable timers on pause
             tmrGame.Enabled = false;
             tmrScore.Enabled = false;
         }
 
         private void mnuQuit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); //Close all forms when quit is pressed
         }
 
         private void tmrScore_Tick(object sender, EventArgs e)
         {
+            //Adds to score and sets label accordingly on timer tick
             score += 1;
             lblScore.Text = score.ToString();
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
+            //Closes FrmGame, opens FrmHighscore
             FrmHighScores FrmHighScore2 = new FrmHighScores(lblName.Text, Convert.ToInt32(lblScore.Text));
             Hide();
             FrmHighScore2.ShowDialog();
@@ -105,7 +112,7 @@ namespace GoblinGame
 
         private void FrmGame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); //Closes all forms if FrmGame is closed in any way
         }
 
         private void tmrGame_Tick(object sender, EventArgs e)
@@ -121,13 +128,13 @@ namespace GoblinGame
                 goblin1.MovePlayer(move);
             }
 
-            if (jump == true)
+            if (jump == true) //If space is pressed
             {
                 move = "jump";
                 goblin1.MovePlayer(move);
             }
 
-            if (goblin1.y == 220)
+            if (goblin1.y == 220) //Reset jump when the player hits the ground, so the player my jump again
             {
                 jump = false;
                 goblin1.yspeed = 17;              
@@ -136,7 +143,8 @@ namespace GoblinGame
             bush.MoveBush();
             crate.MoveCrate();
             tree.MoveTree();
-
+            
+            //If the objects intersect with each other, move them
             if (tree.treeRec.IntersectsWith(crate.crateRec) || tree.treeRec.IntersectsWith(bush.bushRec))
             {
                 tree.x += 20;
@@ -147,9 +155,12 @@ namespace GoblinGame
                 crate.x += 10;
             }
 
-            bat1.MoveEnemy();
+            if (score > 100) //Allow enemies to move only when score is > 100
+            {
+                bat1.MoveEnemy();
+            }
 
-            foreach (Bullet b in bullets)
+            foreach (Bullet b in bullets) //If the bat intersects with the bullet reset the bat and remove the bullet, or the bullet reaches the right side of the panel, remove the bullet
             {
                 if (bat1.enemyRec.IntersectsWith(b.bulletRec))
                 {
@@ -167,6 +178,7 @@ namespace GoblinGame
 
             if (goblin1.playerRec.IntersectsWith(crate.crateRec) || goblin1.playerRec.IntersectsWith(tree.treeRec) || goblin1.playerRec.IntersectsWith(bush.bushRec) || goblin1.playerRec.IntersectsWith(bat1.enemyRec))
             {
+                //If the player intersects with any bad objects, stop the game and show the restart label
                 tmrGame.Enabled = false;
                 tmrRestart.Enabled = true;
                 tmrScore.Enabled = false;
@@ -182,6 +194,7 @@ namespace GoblinGame
         {
             if (restart == true)
             {
+                //If the player has lost and r is pressed, set everything back to its original place
                 tmrGame.Enabled = true;
                 tmrRestart.Enabled = false;
                 tmrScore.Enabled = true;

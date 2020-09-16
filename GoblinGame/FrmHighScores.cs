@@ -15,7 +15,7 @@ namespace GoblinGame
     {
         string name;
 
-        string binPath = Application.StartupPath + @"\..\..\resources\highscores.txt";
+        string binPath = Application.StartupPath + @"\..\..\resources\highscores.txt"; //File holding the highscores
         List<HighScores> highScores = new List<HighScores>();
 
         public FrmHighScores(string playerName, int score)
@@ -34,14 +34,14 @@ namespace GoblinGame
                 highScores.Add(new HighScores(values[0], Int32.Parse(values[1])));
             }
             reader.Close();
-            name = lblPlayerName.Text;
+            name = lblPlayerName.Text; //Set the name string to be the same as lblPLayerNames text
         }
         public void DisplayHighScores()
         {
-            foreach (HighScores s in highScores)
+            foreach (HighScores s in highScores) //Foreach value in the highscore file
             {
-                lstBoxName.Items.Add(s.Name);
-                lstBoxScore.Items.Add(s.Score);
+                lstBoxName.Items.Add(s.Name); //Add the name of the player to the listbox
+                lstBoxScore.Items.Add(s.Score); //Add the score of the player to the listbox
 
             }
         }
@@ -49,9 +49,9 @@ namespace GoblinGame
         private void FrmHighScores_Load(object sender, EventArgs e)
         {
             int lowest_score = highScores[(highScores.Count - 1)].Score;
-            if (int.Parse(lblPlayerScore.Text) > lowest_score)
+            if (int.Parse(lblPlayerScore.Text) > lowest_score) //If the score the player got was higher than the lowest score displayed
             {
-                highScores.Add(new HighScores(lblPlayerName.Text, int.Parse(lblPlayerScore.Text)));
+                highScores.Add(new HighScores(lblPlayerName.Text, int.Parse(lblPlayerScore.Text))); //Add the name and score to highScores
             }
 
             SortHighScores();
@@ -60,7 +60,7 @@ namespace GoblinGame
 
         public void SortHighScores()
         {
-            highScores = highScores.OrderByDescending(hs => hs.Score).Take(10).ToList();
+            highScores = highScores.OrderByDescending(hs => hs.Score).Take(10).ToList(); //Sets the box to only show 10 scores and put them in descending order
         }
 
         public void SaveHighScores()
@@ -68,14 +68,14 @@ namespace GoblinGame
             StringBuilder builder = new StringBuilder();
             foreach (HighScores score in highScores)
             {
-                //{0} is for the Name, {1} is for the Score and {2} is for a new line
-                builder.Append(string.Format("{0},{1}{2}", score.Name, score.Score, Environment.NewLine));
+                builder.Append(string.Format("{0},{1}{2}", score.Name, score.Score, Environment.NewLine)); //Adds scores to a variable, {0} is for the Name, {1} is for the Score and {2} is for a new line
             }
-            File.WriteAllText(binPath, builder.ToString());
+            File.WriteAllText(binPath, builder.ToString()); //Write the variable with the scores to the file
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            //Sets closes FrmHighscores and opens FrmGame
             SaveHighScores();
             FrmGame FrmGame2 = new FrmGame(name);
             Hide();
@@ -84,6 +84,7 @@ namespace GoblinGame
 
         private void FrmHighScores_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //Saves highscores and exits the whole game if FrmHighscores is manually closed
             SaveHighScores();
             Application.Exit();
         }

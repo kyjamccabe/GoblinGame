@@ -29,15 +29,15 @@ namespace GoblinGame.obstacles
 
         public void DrawTree(Graphics g)
         {
-            g.DrawImage(tree, treeRec); //Draw rock image
+            g.DrawImage(tree, treeRec); //Draw tree image
         }
 
         public void MoveTree()
         {
             if (x <= -50)
             {
-                x = 800 + rnd.Next(100, 600);
-                treeRec.Location = new Point(x, y);
+                x = 800 + rnd.Next(100, 600); //Set at a random position (within boundaries)
+                treeRec.Location = new Point(x, y); //Set the location of the rectangle holding the tree
             }
             else
             {

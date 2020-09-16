@@ -10,9 +10,11 @@ namespace GoblinGame
     {
         public HighScores(string name, int score)
         {
+            //Get the name and score from FrmGame
             Name = name;
             Score = score;
         }
+        //Set the name and score to be used in FrmHighscore
         public string Name { get; set; }
 
         public int Score { get; set; }

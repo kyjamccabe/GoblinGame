@@ -38,7 +38,7 @@ namespace GoblinGame
 
             if (move == "right")
             {
-                if (playerRec.Location.X > 485) // is spaceship within 50 of right side
+                if (playerRec.Location.X > 485) // is player within 50 of right side
                 {
                     x = 490;
                     playerRec.Location = new Point(x, y);
@@ -53,7 +53,7 @@ namespace GoblinGame
 
             if (move == "left")
             {
-                if (playerRec.Location.X < 10) // is spaceship within 10 of left side
+                if (playerRec.Location.X < 10) // is player within 10 of left side
                 {
                     x = 5;
                     playerRec.Location = new Point(x, y);
@@ -67,6 +67,7 @@ namespace GoblinGame
 
             if (move == "jump")
             {                    
+                    //If the player is jumping, gradually move it up then down
                     yspeed = yspeed - gravity;
                     y = y - yspeed;
                     playerRec.Location = new Point(x, y);                       
