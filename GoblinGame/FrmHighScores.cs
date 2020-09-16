@@ -15,7 +15,7 @@ namespace GoblinGame
     {
         string name;
 
-        string binPath = Application.StartupPath + @"\..\..\resources\highscores.txt"; //File holding the highscores
+        string binPath = Application.StartupPath + @"highscores.txt"; //File holding the highscores
         List<HighScores> highScores = new List<HighScores>();
 
         public FrmHighScores(string playerName, int score)

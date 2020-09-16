@@ -20,7 +20,7 @@ namespace GoblinGame
 
         //Creates objects for each of the sprites
         Enemy bat1 = new Enemy();
-        Player goblin1 = new Player(); 
+        Player player = new Player(); 
         Crate crate = new Crate();
         Bush bush = new Bush();
         Tree tree = new Tree();
@@ -47,7 +47,7 @@ namespace GoblinGame
             
             //Calls to each objects respective draw methods
             bat1.DrawEnemy(g);
-            goblin1.DrawPlayer(g);
+            player.DrawPlayer(g);
             tree.DrawTree(g);
             crate.DrawCrate(g);
             bush.DrawBush(g);
@@ -64,7 +64,7 @@ namespace GoblinGame
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
-            if (e.KeyData == Keys.Space && shoot == true) { bullets.Add(new Bullet(goblin1.playerRec)); }
+            if (e.KeyData == Keys.Space && shoot == true) { bullets.Add(new Bullet(player.playerRec)); }
             if (e.KeyData == Keys.R) { restart = true; }
         }
 
@@ -81,6 +81,7 @@ namespace GoblinGame
             //Enable timers on start
             tmrGame.Enabled = true;
             tmrScore.Enabled = true;
+            tmrAnim.Enabled = true;
         }
 
         private void mnuPause_Click(object sender, EventArgs e)
@@ -88,6 +89,7 @@ namespace GoblinGame
             //Disable timers on pause
             tmrGame.Enabled = false;
             tmrScore.Enabled = false;
+            tmrAnim.Enabled = false;
         }
 
         private void mnuQuit_Click(object sender, EventArgs e)
@@ -115,29 +117,35 @@ namespace GoblinGame
             Application.Exit(); //Closes all forms if FrmGame is closed in any way
         }
 
+        private void tmrAnim_Tick(object sender, EventArgs e)
+        {
+            player.PlayerAnim(); //Call to anim2
+            bat1.EnemyAnim();
+        }
+
         private void tmrGame_Tick(object sender, EventArgs e)
         {
             if (right) // if right arrow key pressed
             {
                 move = "right";
-                goblin1.MovePlayer(move);
+                player.MovePlayer(move);
             }
             if (left) // if left arrow key pressed
             {
                 move = "left";
-                goblin1.MovePlayer(move);
+                player.MovePlayer(move);
             }
 
             if (jump == true) //If space is pressed
             {
                 move = "jump";
-                goblin1.MovePlayer(move);
+                player.MovePlayer(move);
             }
 
-            if (goblin1.y == 220) //Reset jump when the player hits the ground, so the player my jump again
+            if (player.y == 220) //Reset jump when the player hits the ground, so the player my jump again
             {
                 jump = false;
-                goblin1.yspeed = 17;              
+                player.ySpeed = 17;              
             }
 
             bush.MoveBush();
@@ -176,12 +184,13 @@ namespace GoblinGame
                 }
             }
 
-            if (goblin1.playerRec.IntersectsWith(crate.crateRec) || goblin1.playerRec.IntersectsWith(tree.treeRec) || goblin1.playerRec.IntersectsWith(bush.bushRec) || goblin1.playerRec.IntersectsWith(bat1.enemyRec))
+            if (player.playerRec.IntersectsWith(crate.crateRec) || player.playerRec.IntersectsWith(tree.treeRec) || player.playerRec.IntersectsWith(bush.bushRec) || player.playerRec.IntersectsWith(bat1.enemyRec))
             {
                 //If the player intersects with any bad objects, stop the game and show the restart label
                 tmrGame.Enabled = false;
                 tmrRestart.Enabled = true;
                 tmrScore.Enabled = false;
+                tmrAnim.Enabled = false;
                 lblRestart.Visible = true;
                 mnuStart.Enabled = false;
                 shoot = false;
@@ -198,16 +207,17 @@ namespace GoblinGame
                 tmrGame.Enabled = true;
                 tmrRestart.Enabled = false;
                 tmrScore.Enabled = true;
+                tmrAnim.Enabled = true;
                 mnuStart.Enabled = true;
                 lblRestart.Visible = false;
-                goblin1.x = 20;
-                goblin1.y = 220;
+                player.x = 20;
+                player.y = 220;
 
                 jump = false;
                 shoot = true;
                 string move = string.Empty;
                 score = 0;
-                goblin1.yspeed = 20;
+                player.ySpeed = 20;
 
                 crate.x = 800;
                 tree.x = 1000;
@@ -217,7 +227,7 @@ namespace GoblinGame
                 bush.MoveBush();
                 crate.MoveCrate();
                 tree.MoveTree();
-                goblin1.MovePlayer(move);
+                player.MovePlayer(move);
                 bat1.MoveEnemy();
             }
 

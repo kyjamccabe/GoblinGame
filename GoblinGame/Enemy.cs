@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace GoblinGame
 {
@@ -12,20 +13,27 @@ namespace GoblinGame
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
         public Image enemyImage;//variable for the bats image
+
+        Image[] images = new Image[2]; //Declare array
+
         public Rectangle enemyRec;//variable for a rectangle to place our image in
 
         //Declare a random number generator
         Random rnd = new Random();
         int rndmspeed = 3;
+        int count = 0;
 
         //Create a constructor (initialises the values of the fields)
         public Enemy()
         {
+            images[0] = Image.FromFile("bat0.png");
+            images[1] = Image.FromFile("bat1.png");
+
             x = 700;
             y = 120;
             width = 40;
             height = 40;
-            enemyImage = Properties.Resources.bat1;
+            enemyImage = images[count];
             enemyRec = new Rectangle(x, y, width, height);
 
         }
@@ -50,6 +58,16 @@ namespace GoblinGame
                 x -= rndmspeed; //If it is not at the left of the screen, move it by the random number generated
             }          
             enemyRec.Location = new Point(x, y); //Move the rectangle to coincide with the enemy
+        }
+
+        public void EnemyAnim()
+        {
+            enemyImage = images[count];
+            count++;
+            if (count > 1)
+            {
+                count = 0;
+            }
         }
     }
 }

@@ -47,6 +47,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnScore = new System.Windows.Forms.Button();
             this.lstScore = new System.Windows.Forms.ListBox();
+            this.tmrAnim = new System.Windows.Forms.Timer(this.components);
             this.pnlGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Mnu.SuspendLayout();
@@ -196,6 +197,10 @@
             this.lstScore.Size = new System.Drawing.Size(10, 4);
             this.lstScore.TabIndex = 11;
             // 
+            // tmrAnim
+            // 
+            this.tmrAnim.Tick += new System.EventHandler(this.tmrAnim_Tick);
+            // 
             // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,6 +250,7 @@
         private System.Windows.Forms.Button btnScore;
         private System.Windows.Forms.ListBox lstScore;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer tmrAnim;
     }
 }
 
