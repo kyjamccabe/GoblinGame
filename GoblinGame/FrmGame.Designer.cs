@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlGame = new System.Windows.Forms.Panel();
+            this.PnlGame = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblRestart = new System.Windows.Forms.Label();
+            this.LblRestart = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPause = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuPause = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu = new System.Windows.Forms.MenuStrip();
-            this.mnuQuit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblScore = new System.Windows.Forms.Label();
+            this.LblScore = new System.Windows.Forms.Label();
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
             this.tmrScore = new System.Windows.Forms.Timer(this.components);
-            this.lblName = new System.Windows.Forms.Label();
-            this.btnScore = new System.Windows.Forms.Button();
+            this.LblName = new System.Windows.Forms.Label();
+            this.BtnScore = new System.Windows.Forms.Button();
             this.lstScore = new System.Windows.Forms.ListBox();
             this.tmrAnim = new System.Windows.Forms.Timer(this.components);
-            this.pnlGame.SuspendLayout();
+            this.PnlGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Mnu.SuspendLayout();
             this.SuspendLayout();
@@ -63,17 +63,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Goblin Game";
             // 
-            // pnlGame
+            // PnlGame
             // 
-            this.pnlGame.BackColor = System.Drawing.Color.Silver;
-            this.pnlGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlGame.BackgroundImage")));
-            this.pnlGame.Controls.Add(this.pictureBox1);
-            this.pnlGame.Controls.Add(this.lblRestart);
-            this.pnlGame.Location = new System.Drawing.Point(12, 84);
-            this.pnlGame.Name = "pnlGame";
-            this.pnlGame.Size = new System.Drawing.Size(550, 317);
-            this.pnlGame.TabIndex = 3;
-            this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            this.PnlGame.BackColor = System.Drawing.Color.Silver;
+            this.PnlGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlGame.BackgroundImage")));
+            this.PnlGame.Controls.Add(this.pictureBox1);
+            this.PnlGame.Controls.Add(this.LblRestart);
+            this.PnlGame.Location = new System.Drawing.Point(12, 84);
+            this.PnlGame.Name = "PnlGame";
+            this.PnlGame.Size = new System.Drawing.Size(550, 317);
+            this.PnlGame.TabIndex = 3;
+            this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlGame_Paint);
             // 
             // pictureBox1
             // 
@@ -84,18 +84,18 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // lblRestart
+            // LblRestart
             // 
-            this.lblRestart.AutoSize = true;
-            this.lblRestart.BackColor = System.Drawing.Color.Gray;
-            this.lblRestart.Font = new System.Drawing.Font("High Tower Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestart.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRestart.Location = new System.Drawing.Point(147, 26);
-            this.lblRestart.Name = "lblRestart";
-            this.lblRestart.Size = new System.Drawing.Size(252, 37);
-            this.lblRestart.TabIndex = 15;
-            this.lblRestart.Text = "Press R to restart.";
-            this.lblRestart.Visible = false;
+            this.LblRestart.AutoSize = true;
+            this.LblRestart.BackColor = System.Drawing.Color.Gray;
+            this.LblRestart.Font = new System.Drawing.Font("High Tower Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRestart.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.LblRestart.Location = new System.Drawing.Point(147, 26);
+            this.LblRestart.Name = "LblRestart";
+            this.LblRestart.Size = new System.Drawing.Size(252, 37);
+            this.LblRestart.TabIndex = 15;
+            this.LblRestart.Text = "Press R to restart.";
+            this.LblRestart.Visible = false;
             // 
             // label2
             // 
@@ -106,38 +106,38 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Name:";
             // 
-            // mnuStart
+            // MnuStart
             // 
-            this.mnuStart.Name = "mnuStart";
-            this.mnuStart.Size = new System.Drawing.Size(43, 20);
-            this.mnuStart.Text = "Start";
-            this.mnuStart.Click += new System.EventHandler(this.mnuStart_Click);
+            this.MnuStart.Name = "MnuStart";
+            this.MnuStart.Size = new System.Drawing.Size(43, 20);
+            this.MnuStart.Text = "Start";
+            this.MnuStart.Click += new System.EventHandler(this.MnuStart_Click);
             // 
-            // mnuPause
+            // MnuPause
             // 
-            this.mnuPause.Name = "mnuPause";
-            this.mnuPause.Size = new System.Drawing.Size(50, 20);
-            this.mnuPause.Text = "Pause";
-            this.mnuPause.Click += new System.EventHandler(this.mnuPause_Click);
+            this.MnuPause.Name = "MnuPause";
+            this.MnuPause.Size = new System.Drawing.Size(50, 20);
+            this.MnuPause.Text = "Pause";
+            this.MnuPause.Click += new System.EventHandler(this.MnuPause_Click);
             // 
             // Mnu
             // 
             this.Mnu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuStart,
-            this.mnuPause,
-            this.mnuQuit});
+            this.MnuStart,
+            this.MnuPause,
+            this.MnuQuit});
             this.Mnu.Location = new System.Drawing.Point(0, 0);
             this.Mnu.Name = "Mnu";
             this.Mnu.Size = new System.Drawing.Size(691, 24);
             this.Mnu.TabIndex = 2;
             this.Mnu.Text = "menuStrip2";
             // 
-            // mnuQuit
+            // MnuQuit
             // 
-            this.mnuQuit.Name = "mnuQuit";
-            this.mnuQuit.Size = new System.Drawing.Size(76, 20);
-            this.mnuQuit.Text = "Quit Game";
-            this.mnuQuit.Click += new System.EventHandler(this.mnuQuit_Click);
+            this.MnuQuit.Name = "MnuQuit";
+            this.MnuQuit.Size = new System.Drawing.Size(76, 20);
+            this.MnuQuit.Text = "Quit Game";
+            this.MnuQuit.Click += new System.EventHandler(this.MnuQuit_Click);
             // 
             // label3
             // 
@@ -148,46 +148,46 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Score:";
             // 
-            // lblScore
+            // LblScore
             // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.Location = new System.Drawing.Point(619, 128);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(13, 13);
-            this.lblScore.TabIndex = 7;
-            this.lblScore.Text = "0";
+            this.LblScore.AutoSize = true;
+            this.LblScore.Location = new System.Drawing.Point(619, 128);
+            this.LblScore.Name = "LblScore";
+            this.LblScore.Size = new System.Drawing.Size(13, 13);
+            this.LblScore.TabIndex = 7;
+            this.LblScore.Text = "0";
             // 
             // tmrGame
             // 
             this.tmrGame.Interval = 10;
-            this.tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            this.tmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
             // 
             // tmrRestart
             // 
             this.tmrRestart.Interval = 1;
-            this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
+            this.tmrRestart.Tick += new System.EventHandler(this.TmrRestart_Tick);
             // 
             // tmrScore
             // 
-            this.tmrScore.Tick += new System.EventHandler(this.tmrScore_Tick);
+            this.tmrScore.Tick += new System.EventHandler(this.TmrScore_Tick);
             // 
-            // lblName
+            // LblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(624, 84);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 13);
-            this.lblName.TabIndex = 15;
+            this.LblName.AutoSize = true;
+            this.LblName.Location = new System.Drawing.Point(624, 84);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(0, 13);
+            this.LblName.TabIndex = 15;
             // 
-            // btnScore
+            // BtnScore
             // 
-            this.btnScore.Location = new System.Drawing.Point(581, 160);
-            this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(75, 23);
-            this.btnScore.TabIndex = 16;
-            this.btnScore.Text = "Highscores";
-            this.btnScore.UseVisualStyleBackColor = true;
-            this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
+            this.BtnScore.Location = new System.Drawing.Point(581, 160);
+            this.BtnScore.Name = "BtnScore";
+            this.BtnScore.Size = new System.Drawing.Size(75, 23);
+            this.BtnScore.TabIndex = 16;
+            this.BtnScore.Text = "Highscores";
+            this.BtnScore.UseVisualStyleBackColor = true;
+            this.BtnScore.Click += new System.EventHandler(this.BtnScore_Click);
             // 
             // lstScore
             // 
@@ -199,30 +199,30 @@
             // 
             // tmrAnim
             // 
-            this.tmrAnim.Tick += new System.EventHandler(this.tmrAnim_Tick);
+            this.tmrAnim.Tick += new System.EventHandler(this.TmrAnim_Tick);
             // 
             // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 416);
-            this.Controls.Add(this.btnScore);
-            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.BtnScore);
+            this.Controls.Add(this.LblName);
             this.Controls.Add(this.lstScore);
-            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.LblScore);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pnlGame);
+            this.Controls.Add(this.PnlGame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Mnu);
             this.KeyPreview = true;
             this.Name = "FrmGame";
             this.Text = "Goblin Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGame_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGame_KeyUp);
-            this.pnlGame.ResumeLayout(false);
-            this.pnlGame.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyUp);
+            this.PnlGame.ResumeLayout(false);
+            this.PnlGame.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Mnu.ResumeLayout(false);
             this.Mnu.PerformLayout();
@@ -234,20 +234,20 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlGame;
+        private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem mnuStart;
-        private System.Windows.Forms.ToolStripMenuItem mnuPause;
+        private System.Windows.Forms.ToolStripMenuItem MnuStart;
+        private System.Windows.Forms.ToolStripMenuItem MnuPause;
         private System.Windows.Forms.MenuStrip Mnu;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.ToolStripMenuItem mnuQuit;
+        private System.Windows.Forms.Label LblScore;
+        private System.Windows.Forms.ToolStripMenuItem MnuQuit;
         private System.Windows.Forms.Timer tmrGame;
         private System.Windows.Forms.Timer tmrRestart;
-        private System.Windows.Forms.Label lblRestart;
+        private System.Windows.Forms.Label LblRestart;
         private System.Windows.Forms.Timer tmrScore;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Button btnScore;
+        private System.Windows.Forms.Label LblName;
+        private System.Windows.Forms.Button BtnScore;
         private System.Windows.Forms.ListBox lstScore;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer tmrAnim;

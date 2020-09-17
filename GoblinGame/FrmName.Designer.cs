@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.TxtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEnter = new System.Windows.Forms.Button();
+            this.BtnEnter = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,12 +39,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtName
+            // TxtName
             // 
-            this.txtName.Location = new System.Drawing.Point(95, 33);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 0;
+            this.TxtName.Location = new System.Drawing.Point(95, 33);
+            this.TxtName.Name = "TxtName";
+            this.TxtName.Size = new System.Drawing.Size(100, 20);
+            this.TxtName.TabIndex = 0;
             // 
             // label1
             // 
@@ -55,15 +55,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Name:";
             // 
-            // btnEnter
+            // BtnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(109, 59);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 2;
-            this.btnEnter.Text = "Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            this.BtnEnter.Location = new System.Drawing.Point(109, 59);
+            this.BtnEnter.Name = "BtnEnter";
+            this.BtnEnter.Size = new System.Drawing.Size(75, 23);
+            this.BtnEnter.TabIndex = 2;
+            this.BtnEnter.Text = "Enter";
+            this.BtnEnter.UseVisualStyleBackColor = true;
+            this.BtnEnter.Click += new System.EventHandler(this.BtnEnter_Click);
             // 
             // label2
             // 
@@ -130,9 +130,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.BtnEnter);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.TxtName);
             this.Name = "FrmName";
             this.Text = "FrmName";
             this.ResumeLayout(false);
@@ -142,9 +142,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.Button BtnEnter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

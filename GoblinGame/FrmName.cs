@@ -20,9 +20,9 @@ namespace GoblinGame
             InitializeComponent();
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void BtnEnter_Click(object sender, EventArgs e)
         {
-            playerName = txtName.Text;
+            playerName = TxtName.Text;
 
             if (Regex.IsMatch(playerName, @"^[a-zA-Z]+$"))//checks playerName for letters
             {
@@ -35,8 +35,8 @@ namespace GoblinGame
             {
                 //invalid playerName, clear txtName and focus on it to try again
                 MessageBox.Show("please enter a name using letters only!");
-                txtName.Clear();
-                txtName.Focus();
+                TxtName.Clear();
+                TxtName.Focus();
             }       
         }
     }

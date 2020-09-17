@@ -77,8 +77,8 @@ namespace GoblinGame
             if (move == "jump")
             {                    
                     //If the player is jumping, gradually move it up then down
-                    ySpeed = ySpeed - gravity;
-                    y = y - ySpeed;
+                    ySpeed -= gravity;
+                    y -= ySpeed;
                     playerRec.Location = new Point(x, y);                       
             }
         }

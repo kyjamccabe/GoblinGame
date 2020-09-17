@@ -1,10 +1,10 @@
+cody,225
+awd,159
 gamer,146
 beep,146
 Kyja,145
 apple,127
+wad,98
 Lynda,90
 harry,80
 sdd,80
-Nigel,74
-Reginald,70
-Mary,65

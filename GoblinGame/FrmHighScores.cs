@@ -22,8 +22,8 @@ namespace GoblinGame
         {
             InitializeComponent();
             // get name and score from frmGame and show in lblPlayerName and lblPlayerScore         
-            lblPlayerName.Text = playerName;
-            lblPlayerScore.Text = score.ToString();
+            LblPlayerName.Text = playerName;
+            LblPlayerScore.Text = score.ToString();
             var reader = new StreamReader(binPath);
             // While the reader still has something to read, this code will execute.
             while (!reader.EndOfStream)
@@ -34,14 +34,14 @@ namespace GoblinGame
                 highScores.Add(new HighScores(values[0], Int32.Parse(values[1])));
             }
             reader.Close();
-            name = lblPlayerName.Text; //Set the name string to be the same as lblPLayerNames text
+            name = LblPlayerName.Text; //Set the name string to be the same as lblPLayerNames text
         }
         public void DisplayHighScores()
         {
             foreach (HighScores s in highScores) //Foreach value in the highscore file
             {
-                lstBoxName.Items.Add(s.Name); //Add the name of the player to the listbox
-                lstBoxScore.Items.Add(s.Score); //Add the score of the player to the listbox
+                LstBoxName.Items.Add(s.Name); //Add the name of the player to the listbox
+                LstBoxScore.Items.Add(s.Score); //Add the score of the player to the listbox
 
             }
         }
@@ -49,9 +49,9 @@ namespace GoblinGame
         private void FrmHighScores_Load(object sender, EventArgs e)
         {
             int lowest_score = highScores[(highScores.Count - 1)].Score;
-            if (int.Parse(lblPlayerScore.Text) > lowest_score) //If the score the player got was higher than the lowest score displayed
+            if (int.Parse(LblPlayerScore.Text) > lowest_score) //If the score the player got was higher than the lowest score displayed
             {
-                highScores.Add(new HighScores(lblPlayerName.Text, int.Parse(lblPlayerScore.Text))); //Add the name and score to highScores
+                highScores.Add(new HighScores(LblPlayerName.Text, int.Parse(LblPlayerScore.Text))); //Add the name and score to highScores
             }
 
             SortHighScores();
@@ -73,7 +73,7 @@ namespace GoblinGame
             File.WriteAllText(binPath, builder.ToString()); //Write the variable with the scores to the file
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private void BtnReturn_Click(object sender, EventArgs e)
         {
             //Sets closes FrmHighscores and opens FrmGame
             SaveHighScores();

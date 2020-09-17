@@ -37,11 +37,11 @@ namespace GoblinGame
         public FrmGame(string playerName)
         {
             InitializeComponent();
-            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true }); //Removes panel flickering
-            lblName.Text = playerName;
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true }); //Removes panel flickering
+            LblName.Text = playerName;
         }
 
-        private void pnlGame_Paint(object sender, PaintEventArgs e)
+        private void PnlGame_Paint(object sender, PaintEventArgs e)
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
@@ -59,7 +59,7 @@ namespace GoblinGame
             }
         }
         
-        private void frmGame_KeyDown(object sender, KeyEventArgs e)
+        private void FrmGame_KeyDown(object sender, KeyEventArgs e)
         {
             //Sets variables according to key presses
             if (e.KeyData == Keys.Left) { left = true; }
@@ -69,7 +69,7 @@ namespace GoblinGame
             if (e.KeyData == Keys.R) { restart = true; }
         }
 
-        private void frmGame_KeyUp(object sender, KeyEventArgs e)
+        private void FrmGame_KeyUp(object sender, KeyEventArgs e)
         {
             //Unsets variables according to keys that aren't pressed
             if (e.KeyData == Keys.Left) { left = false; }
@@ -78,16 +78,16 @@ namespace GoblinGame
             if (e.KeyData == Keys.Space) { keyDown = false; }
         }
 
-        private void mnuStart_Click(object sender, EventArgs e)
+        private void MnuStart_Click(object sender, EventArgs e)
         {
             //Enable timers on start
             tmrGame.Enabled = true;
             tmrScore.Enabled = true;
             tmrAnim.Enabled = true;
-            btnScore.Enabled = false;
+            BtnScore.Enabled = false;
         }
 
-        private void mnuPause_Click(object sender, EventArgs e)
+        private void MnuPause_Click(object sender, EventArgs e)
         {
             //Disable timers on pause
             tmrGame.Enabled = false;
@@ -95,22 +95,22 @@ namespace GoblinGame
             tmrAnim.Enabled = false;
         }
 
-        private void mnuQuit_Click(object sender, EventArgs e)
+        private void MnuQuit_Click(object sender, EventArgs e)
         {
             Application.Exit(); //Close all forms when quit is pressed
         }
 
-        private void tmrScore_Tick(object sender, EventArgs e)
+        private void TmrScore_Tick(object sender, EventArgs e)
         {
             //Adds to score and sets label accordingly on timer tick
             score += 1;
-            lblScore.Text = score.ToString();
+            LblScore.Text = score.ToString();
         }
 
-        private void btnScore_Click(object sender, EventArgs e)
+        private void BtnScore_Click(object sender, EventArgs e)
         {
             //Closes FrmGame, opens FrmHighscore
-            FrmHighScores FrmHighScore2 = new FrmHighScores(lblName.Text, Convert.ToInt32(lblScore.Text));
+            FrmHighScores FrmHighScore2 = new FrmHighScores(LblName.Text, Convert.ToInt32(LblScore.Text));
             Hide();
             FrmHighScore2.ShowDialog();
         }
@@ -120,13 +120,13 @@ namespace GoblinGame
             Application.Exit(); //Closes all forms if FrmGame is closed in any way
         }
 
-        private void tmrAnim_Tick(object sender, EventArgs e)
+        private void TmrAnim_Tick(object sender, EventArgs e)
         {
             player.PlayerAnim(); //Call to anim2
             bat1.EnemyAnim();
         }
 
-        private void tmrGame_Tick(object sender, EventArgs e)
+        private void TmrGame_Tick(object sender, EventArgs e)
         {
             if (right) // if right arrow key pressed
             {
@@ -194,16 +194,19 @@ namespace GoblinGame
                 tmrRestart.Enabled = true;
                 tmrScore.Enabled = false;
                 tmrAnim.Enabled = false;
-                btnScore.Enabled = true;
-                lblRestart.Visible = true;
-                mnuStart.Enabled = false;
+                BtnScore.Enabled = true;
+                LblRestart.Visible = true;
+                MnuStart.Enabled = false;
                 shoot = false;
+
+                FrmHighScores frm = new FrmHighScores(LblName.Text, Convert.ToInt32(LblScore.Text));
+                frm.SaveHighScores();
             }
 
-            pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
+            PnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
 
-        private void tmrRestart_Tick(object sender, EventArgs e)
+        private void TmrRestart_Tick(object sender, EventArgs e)
         {
             if (restart == true)
             {
@@ -212,9 +215,9 @@ namespace GoblinGame
                 tmrRestart.Enabled = false;
                 tmrScore.Enabled = true;
                 tmrAnim.Enabled = true;
-                mnuStart.Enabled = true;
-                btnScore.Enabled = false;
-                lblRestart.Visible = false;
+                MnuStart.Enabled = true;
+                BtnScore.Enabled = false;
+                LblRestart.Visible = false;
                 player.x = 20;
                 player.y = 220;
 
@@ -236,7 +239,7 @@ namespace GoblinGame
                 bat1.MoveEnemy();
             }
 
-            pnlGame.Invalidate();
+            PnlGame.Invalidate();
         }
     }
 }
