@@ -30,6 +30,7 @@ namespace GoblinGame
         bool left, right, jump;
         bool restart = false;
         bool shoot = true;
+        bool keyDown;
         string move;
         int score;
 
@@ -64,7 +65,7 @@ namespace GoblinGame
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
-            if (e.KeyData == Keys.Space && shoot == true) { bullets.Add(new Bullet(player.playerRec)); }
+            if (e.KeyData == Keys.Space && shoot == true && keyDown == false) { bullets.Add(new Bullet(player.playerRec)); keyDown = true; }
             if (e.KeyData == Keys.R) { restart = true; }
         }
 
@@ -74,6 +75,7 @@ namespace GoblinGame
             if (e.KeyData == Keys.Left) { left = false; }
             if (e.KeyData == Keys.Right) { right = false; }
             if (e.KeyData == Keys.R) { restart = false; }
+            if (e.KeyData == Keys.Space) { keyDown = false; }
         }
 
         private void mnuStart_Click(object sender, EventArgs e)
@@ -82,6 +84,7 @@ namespace GoblinGame
             tmrGame.Enabled = true;
             tmrScore.Enabled = true;
             tmrAnim.Enabled = true;
+            btnScore.Enabled = false;
         }
 
         private void mnuPause_Click(object sender, EventArgs e)
@@ -191,6 +194,7 @@ namespace GoblinGame
                 tmrRestart.Enabled = true;
                 tmrScore.Enabled = false;
                 tmrAnim.Enabled = false;
+                btnScore.Enabled = true;
                 lblRestart.Visible = true;
                 mnuStart.Enabled = false;
                 shoot = false;
@@ -209,6 +213,7 @@ namespace GoblinGame
                 tmrScore.Enabled = true;
                 tmrAnim.Enabled = true;
                 mnuStart.Enabled = true;
+                btnScore.Enabled = false;
                 lblRestart.Visible = false;
                 player.x = 20;
                 player.y = 220;

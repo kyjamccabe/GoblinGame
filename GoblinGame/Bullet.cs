@@ -19,7 +19,7 @@ namespace GoblinGame
         public Bullet(Rectangle playerRec)
         {
             x = playerRec.X + 37; // move bullet to middle of player
-            y = playerRec.Y + 22;
+            y = playerRec.Y + 30;
             width = 20;
             height = 10;
             bullet = Properties.Resources.bullet;

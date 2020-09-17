@@ -15,7 +15,7 @@ namespace GoblinGame
     {
         string name;
 
-        string binPath = Application.StartupPath + @"highscores.txt"; //File holding the highscores
+        string binPath = "highscores.txt"; //File holding the highscores
         List<HighScores> highScores = new List<HighScores>();
 
         public FrmHighScores(string playerName, int score)
@@ -84,8 +84,7 @@ namespace GoblinGame
 
         private void FrmHighScores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Saves highscores and exits the whole game if FrmHighscores is manually closed
-            SaveHighScores();
+            //Saves highscores and exits the whole game if FrmHighscores is manually closed           
             Application.Exit();
         }
     }
