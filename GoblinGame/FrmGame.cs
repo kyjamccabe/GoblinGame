@@ -20,7 +20,7 @@ namespace GoblinGame
 
         //Creates objects for each of the sprites
         Enemy bat1 = new Enemy();
-        Player player = new Player(); 
+        Player player = new Player();
         Crate crate = new Crate();
         Bush bush = new Bush();
         Tree tree = new Tree();
@@ -45,7 +45,7 @@ namespace GoblinGame
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
-            
+
             //Calls to each objects respective draw methods
             bat1.DrawEnemy(g);
             player.DrawPlayer(g);
@@ -58,7 +58,7 @@ namespace GoblinGame
                 b.DrawBullet(g);
             }
         }
-        
+
         private void FrmGame_KeyDown(object sender, KeyEventArgs e)
         {
             //Sets variables according to key presses
@@ -148,13 +148,13 @@ namespace GoblinGame
             if (player.y == 220) //Reset jump when the player hits the ground, so the player my jump again
             {
                 jump = false;
-                player.ySpeed = 17;              
+                player.ySpeed = 18;
             }
 
             bush.MoveBush();
             crate.MoveCrate();
             tree.MoveTree();
-            
+
             //If the objects intersect with each other, move them
             if (tree.treeRec.IntersectsWith(crate.crateRec) || tree.treeRec.IntersectsWith(bush.bushRec))
             {
@@ -179,7 +179,7 @@ namespace GoblinGame
                     bullets.Remove(b);
                     break;
                 }
-                
+
                 if (b.bulletRec.X >= 700)
                 {
                     bullets.Remove(b);
@@ -198,9 +198,6 @@ namespace GoblinGame
                 LblRestart.Visible = true;
                 MnuStart.Enabled = false;
                 shoot = false;
-
-                FrmHighScores frm = new FrmHighScores(LblName.Text, Convert.ToInt32(LblScore.Text));
-                frm.SaveHighScores();
             }
 
             PnlGame.Invalidate(); //makes the paint event fire to redraw the panel
@@ -225,10 +222,10 @@ namespace GoblinGame
                 shoot = true;
                 string move = string.Empty;
                 score = 0;
-                player.ySpeed = 20;
+                player.ySpeed = 18;
 
-                crate.x = 800;
-                tree.x = 1000;
+                crate.x = 1000;
+                tree.x = 1400;
                 bush.x = 600;
                 bat1.x = 700;
 

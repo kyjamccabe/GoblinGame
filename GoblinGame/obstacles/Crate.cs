@@ -19,7 +19,7 @@ namespace GoblinGame.obstacles
         //Create a constructor (initialises the values of the fields)
         public Crate()
         {
-            x = 800;
+            x = 1000;
             y = 253;
             width = 50;
             height = 50;
@@ -36,7 +36,7 @@ namespace GoblinGame.obstacles
         {
             if (x <= -50)
             {
-                x = 550 + rnd.Next(100, 600); //Set at a random position (within boundaries)
+                x = 900 + rnd.Next(100, 600); //Set at a random position (within boundaries)
                 crateRec.Location = new Point(x, y); //Set the location of the rectangle holding the crate
             }
             else

@@ -19,7 +19,7 @@ namespace GoblinGame.obstacles
         //Create a constructor (initialises the values of the fields)
         public Tree()
         {
-            x = 1000;
+            x = 1400;
             y = 249;
             width = 50;
             height = 50;
@@ -36,7 +36,7 @@ namespace GoblinGame.obstacles
         {
             if (x <= -50)
             {
-                x = 800 + rnd.Next(100, 600); //Set at a random position (within boundaries)
+                x = 1400 + rnd.Next(100, 600); //Set at a random position (within boundaries)
                 treeRec.Location = new Point(x, y); //Set the location of the rectangle holding the tree
             }
             else

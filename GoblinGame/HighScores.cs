@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoblinGame
 {
-    class HighScores
+    public class HighScores
     {
         public HighScores(string name, int score)
         {

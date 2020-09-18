@@ -19,7 +19,7 @@ namespace GoblinGame
 
         int count = 0;
         int gravity = 1;
-        public int ySpeed = 17;
+        public int ySpeed = 18;
 
         //Create a constructor (initialises the values of the fields)
         public Player()

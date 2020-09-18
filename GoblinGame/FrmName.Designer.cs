@@ -42,6 +42,7 @@
             // TxtName
             // 
             this.TxtName.Location = new System.Drawing.Point(95, 33);
+            this.TxtName.MaxLength = 9;
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(100, 20);
             this.TxtName.TabIndex = 0;
